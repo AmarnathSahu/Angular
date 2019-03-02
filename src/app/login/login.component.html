@@ -1,0 +1,17 @@
+<div layout="row">
+  <mat-form-field>
+    <input matInput placeholder="Username">
+  </mat-form-field>
+  <div class="flex"></div>
+  <mat-form-field>
+    <input matInput placeholder="Password">
+  </mat-form-field>
+</div>
+<div class="container-image">
+
+</div>
+<button (click)="handleLoginRequest()">click me</button>
+
+<button (click)="changeToDashboard()">go to dashboard</button> <br />
+<a routerLink="/dashboard"><button class="btn btn-success" > dashboard </button></a> <br />
+<button (click)="getAllUsers()">get all users</button>
