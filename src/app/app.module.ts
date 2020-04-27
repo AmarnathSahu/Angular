@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CovalentLayoutModule } from '@covalent/core/layout';
-import { CovalentStepsModule  } from '@covalent/core/steps';
+import { CovalentStepsModule } from '@covalent/core/steps';
 import { MatInputModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { TokenInterceptor } from './_services/token-interceptors';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
