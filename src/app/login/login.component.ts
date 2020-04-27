@@ -12,13 +12,17 @@ export class LoginComponent implements OnInit {
 
   constructor(private apiService : ApiService, private router : Router) { }
 
+  username: string;
+  password: string;
+
   ngOnInit() {
   }
 
   handleLoginRequest(): void{
     let data = new User();
-    data.username = 'saurav12';
-    data.password = 'teqforce!1';
+    data.username = this.username;
+    data.password = this.password;
+    console.log(data);
     this.apiService.postRequest('/users/signin',data).subscribe(res =>{
       console.log(res);
     })
