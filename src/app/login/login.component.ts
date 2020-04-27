@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../_services/api.service';
 import {Router} from '@angular/router';
-import {User} from './../_models/user';
+import {User} from '../_models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
     data.username = 'saurav12';
     data.password = 'teqforce!1';
     this.apiService.postRequest('/users/signin',data).subscribe(res =>{
-      debugger
       console.log(res);
     })
   }
